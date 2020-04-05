@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">MiMiMi</string>
-    <string name="escribir_aqu">Escribir aquí</string>
-    <string name="transformar">Transformar</string>
-    <string name="nota_el_texto_se_copiar_autom_ticamente_al_transformar">Nota: El texto se copiará automáticamente al transformar.</string>
+    <string name="escribir_aqu">Write here</string>
+    <string name="nota_el_texto_se_copiar_autom_ticamente_al_transformar">Note: The text will be copied automatically when converting.</string>
+    <string name="convert">Convert</string>
+    <string name="icon">icon</string>
 </resources>

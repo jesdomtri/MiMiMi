@@ -3,4 +3,12 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
+    <color name="flatEmerald">#2ecc71</color>
+    <color name="flatNephritis">#27ae60</color>
+    <color name="flatWetAsphalt">#34495e</color>
+    <color name="flatClouds">#ecf0f1</color>
+    <color name="flatMidnightBlue">#2c3e50</color>
+    <color name="flatAmethyst">#9b59b6</color>
+    <color name="flatWysteria">#8e44ad</color>
+    <color name="flatSunFlower">#f1c40f</color>
 </resources>
