@@ -52,7 +52,14 @@ public class MainActivity extends AppCompatActivity {
         char[] vocales2 = tildes.toCharArray();
         char[] vocales3 = mayusculas.toCharArray();
 
-        char[] text = input.getText().toString().toCharArray();
+        char[] text = new char[0];
+        if (!input.getText().toString().equals("")){
+            text = input.getText().toString().toCharArray();
+        }else{
+            if (clipboard.hasPrimaryClip()){
+                text = clipboard.getPrimaryClip().getItemAt(0).getText().toString().toCharArray();
+            }
+        }
 
         String res = "";
 
@@ -74,11 +81,7 @@ public class MainActivity extends AppCompatActivity {
             }
             res += c;
         }
-        if(res.equals("") && clipboard.hasPrimaryClip()){
-            output.setText(clipboard.getPrimaryClip().toString());
-        }else{
-            output.setText(res);
-        }
+        output.setText(res);
         output.setMovementMethod(new ScrollingMovementMethod());
         ClipData clip = ClipData.newPlainText("simple text", output.getText());
         clipboard.setPrimaryClip(clip);
