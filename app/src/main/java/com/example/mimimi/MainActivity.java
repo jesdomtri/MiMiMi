@@ -74,7 +74,11 @@ public class MainActivity extends AppCompatActivity {
             }
             res += c;
         }
-        output.setText(res);
+        if(res.equals("") && clipboard.hasPrimaryClip()){
+            output.setText(clipboard.getPrimaryClip().toString());
+        }else{
+            output.setText(res);
+        }
         output.setMovementMethod(new ScrollingMovementMethod());
         ClipData clip = ClipData.newPlainText("simple text", output.getText());
         clipboard.setPrimaryClip(clip);
