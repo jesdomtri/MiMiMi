@@ -1,8 +1,5 @@
 package com.example.mimimi;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.app.Activity;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
@@ -15,8 +12,9 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.android.material.textfield.TextInputEditText;
-import com.google.android.material.textfield.TextInputLayout;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -44,42 +42,28 @@ public class MainActivity extends AppCompatActivity {
         ClipboardManager clipboard = (ClipboardManager)
                 getSystemService(Context.CLIPBOARD_SERVICE);
 
-        String minusculas = "aeou";
-        String tildes = "áéóú";
-        String mayusculas = "AEOU";
-
-        char[] vocales1 = minusculas.toCharArray();
-        char[] vocales2 = tildes.toCharArray();
-        char[] vocales3 = mayusculas.toCharArray();
+        String vocales_minusculas = "aáàäâãåąāeéèëêęēėoóòöôõōøuúùüûū";
+        String vocales_mayusculas = "aáàäâãåąāeéèëêęēėoóòöôõōøuúùüûū".toUpperCase();
 
         char[] text = new char[0];
-        if (!input.getText().toString().equals("")){
+        if (!input.getText().toString().equals("")) {
             text = input.getText().toString().toCharArray();
-        }else{
-            if (clipboard.hasPrimaryClip()){
+        } else {
+            if (clipboard.hasPrimaryClip()) {
                 text = clipboard.getPrimaryClip().getItemAt(0).getText().toString().toCharArray();
             }
         }
 
         String res = "";
 
-        for (char c : text) {
-            for (char d : vocales1) {
-                if (c == d) {
-                    c = 'i';
-                }
+        for (char character : text) {
+            if (vocales_minusculas.indexOf(character) != -1) {
+                character = 'i';
             }
-            for (char d : vocales2) {
-                if (c == d) {
-                    c = 'í';
-                }
+            if (vocales_mayusculas.indexOf(character) != -1) {
+                character = 'I';
             }
-            for (char d : vocales3) {
-                if (c == d) {
-                    c = 'I';
-                }
-            }
-            res += c;
+            res += character;
         }
         output.setText(res);
         output.setMovementMethod(new ScrollingMovementMethod());
